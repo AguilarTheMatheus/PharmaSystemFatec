@@ -1,0 +1,56 @@
+
+
+.sidebar-struct{
+    background-color: #283342;
+    width: 185px;
+    padding-bottom: 177px;
+    height: 100vh;
+}
+
+.sidebar-top{
+    background-color: #1D242E;
+    font-family: 'Poppins';
+    width: 256px;
+    height: 51px;
+}
+.sidebar-top-a-element{
+    color: white;
+    line-height: 48px;
+    font-weight: bold;
+    margin-left: 61px;
+
+}
+
+.sidebar-top-a-element:hover{
+    color: rgba(255, 255, 255, 0.794);
+    transition: 0.2s;
+    line-height: 48px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    margin-left: 61px;
+    text-decoration: none;
+}
+
+.sidebar-ul-elements{
+    color:white;
+    list-style:none;
+    
+}
+.sidebar-ul-elements li{
+    margin: 25px 0px 25px 0px;
+    
+}
+
+/* elementos */
+.sidebar-ul-elements li a{
+    color: white;
+    
+}
+.sidebar-ul-elements li a:hover{
+    color: rgba(255, 255, 255, 0.794);
+    transition: 0.2s;
+    font-family: 'Poppins';
+    text-decoration: none;
+}
+
+
