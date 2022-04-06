@@ -7,16 +7,34 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { ClientComponent } from './client/client.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { MedicinesComponent } from './medicines/medicines.component';
+import { SalesComponent } from './sales/sales.component';
+import { ConsultClientComponent } from './consult-client/consult-client.component';
+import { ConsultEmployeeComponent } from './consult-employee/consult-employee.component';
+import { ConsultMedicinesComponent } from './consult-medicines/consult-medicines.component';
+import { ConsultSalesComponent } from './consult-sales/consult-sales.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent
+    DashboardComponent,
+    SidebarComponent,
+    ClientComponent,
+    EmployeeComponent,
+    MedicinesComponent,
+    SalesComponent,
+    ConsultClientComponent,
+    ConsultEmployeeComponent,
+    ConsultMedicinesComponent,
+    ConsultSalesComponent,
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -24,8 +42,18 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'medicine', component: MedicinesComponent },
+      { path: 'client', component: ClientComponent },
+      { path: 'employee', component: EmployeeComponent },
+      { path: 'sales', component: SalesComponent },
+
+      // rotas das telas de consulta
+      { path: 'consult-medicine', component: ConsultMedicinesComponent },
+      { path: 'consult-client', component: ConsultClientComponent },
+      { path: 'consult-employee', component: ConsultEmployeeComponent },
+      { path: 'consult-sales', component: ConsultSalesComponent },
+
     ])
   ],
   providers: [],

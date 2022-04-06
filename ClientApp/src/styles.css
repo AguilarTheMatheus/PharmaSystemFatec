@@ -1,16 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+.relative-parent{
+  background-color: aquamarine;
 }
-
-code {
-  color: #e01a76;
+.top{
+  background-color:  brown;
+  width: 20px;
 }
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.relative{
+  background-color: blueviolet;
+  height: 100px;
+  width: 300px;
+  position: relative;
+}
+.botão{
+  background-color: #24c285;
+  padding: 9px 57px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  color: white;
+  border: none;
+}
+.label{
+  margin-bottom: 0;
+  font-family: 'Poppins';
+  size: 14px;
+}
+.input{
+  border-radius: 4px;
+  background-color: #E3EBF3;
+  border: 1.5px solid #b8babe96;
 }
