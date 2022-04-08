@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using PharmaSystem.DataModel.DataContext;
+using PharmaSystem.Repository;
 using System;
 
 namespace PharmaSystem
@@ -25,9 +26,10 @@ namespace PharmaSystem
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllers();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+            services.AddScoped<ICostumerRepository, CostumerRepository>();
             services.AddDbContext<PharmacyContext>(options => options.UseSqlServer(ConnectionString));
             services.AddSpaStaticFiles(configuration =>
             {
@@ -38,8 +40,7 @@ namespace PharmaSystem
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "ToDo API",
-                    Description = "An ASP.NET Core Web API for managing ToDo items"
+                    Title = "Pharma Api"
                 });
             });
         }
@@ -71,12 +72,12 @@ namespace PharmaSystem
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
+                    pattern: "{controller=v1}/{action=Index}/{id?}");
             });
 
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("./swagger", "v1");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
                 options.RoutePrefix = string.Empty;
             });
 

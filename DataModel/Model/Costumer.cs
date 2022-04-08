@@ -15,7 +15,5 @@ namespace PharmaSystem.DataModel.Model
         public int PhoneNumber { get; set; }
         public string Address { get; set; }
         public int CPF { get; set; }
-
-        public ICollection<Basket> Basket { get; set; }
     }
 }

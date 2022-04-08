@@ -16,6 +16,5 @@ namespace PharmaSystem.DataModel.Model
         public int CPF { get; set; }
 
         public Permissions Permissions { get; set; }
-        public ICollection<Basket> Basket { get; set; }
     }
 }
