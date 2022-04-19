@@ -41,18 +41,19 @@ import { ConsultSalesComponent } from './consult-sales/consult-sales.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'medicine', component: MedicinesComponent },
-      { path: 'client', component: ClientComponent },
-      { path: 'employee', component: EmployeeComponent },
-      { path: 'sales', component: SalesComponent },
 
-      // rotas das telas de consulta
-      { path: 'consult-medicine', component: ConsultMedicinesComponent },
-      { path: 'consult-client', component: ConsultClientComponent },
-      { path: 'consult-employee', component: ConsultEmployeeComponent },
-      { path: 'consult-sales', component: ConsultSalesComponent },
+        { path: '', component: HomeComponent},
+        { path: 'dashboard', component: DashboardComponent },
+        { path: 'medicine', component: MedicinesComponent },
+        { path: 'client', component: ClientComponent },
+        { path: 'employee', component: EmployeeComponent },
+        { path: 'sales', component: SalesComponent },
+        { path: 'consult-medicine', component: ConsultMedicinesComponent },
+        { path: 'consult-client', component: ConsultClientComponent },
+        { path: 'consult-employee', component: ConsultEmployeeComponent },
+        { path: 'consult-sales', component: ConsultSalesComponent },
+
+     
 
     ])
   ],

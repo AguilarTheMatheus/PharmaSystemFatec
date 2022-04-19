@@ -1,19 +1,66 @@
-<main>
-    <div class="principal" style="display: -webkit-box;">
-  
-     <app-sidebar></app-sidebar>
-  
-      <div style="background-color: #EDF1F5;width:  613px; border-right: 2px solid #b8babe96;border-bottom: 2px solid #b8babe96;">
-        <div style="margin-bottom: 20px;background-color: white;width: 613px;border-bottom: 2px solid #b8babe96;border-right: 2px solid #b8babe96;border-top: 2px solid #b8babe96;height: 51px;">
-          <label style="padding: 10px;width: 115px; height: 24px; top: 18px; left: 308px;margin-left: 36px;">Pharma One</label>
-        </div>
-  
+<body>
+  <div class="div-principal">
+
+   <app-sidebar></app-sidebar>
+
+    <div class="div-second">
+
+      <div class="div-label">
+        <label>PharmaSystem</label>
+      </div>
+
+
         <!-- conteúdo da página -->
-       cadastro de clientes
+        <h3 class="h3-titulo">Cadastrar Cliente</h3>
+        <label class="label-campos-obrigatorios">Todos os campos são obrigatórios</label>
+        <br>
+        <br>
+       
+
+        <div class="div-nome-e-id" >
+
+          
+          <div style="display: inline-grid;margin-right: 10px;">
+            <label >CPF</label>
+            <input class="input" type="text" placeholder="000.000.000-00">
+          </div>
+
+          <div class="div-id" >
+            <label>Telefone</label>
+            <input class="input" type="text" placeholder="(00)0000-0000">
+          </div>
+
+        </div>
+
+
+
+        <div style="display: -webkit-box;margin-left: 30px; margin-top: 13px;padding-right: 13px;">
+          <div style="display: inline-grid;margin-right: 10px;">
+            <label >Primeiro Nome</label>
+            <input class="input" type="text" placeholder="Insira o Primeiro Nome">
+          </div>
+
+          <div style="display: inline-grid;margin-right: 10px;padding-right: 13px;">
+            <label>Segundo Nome</label>
+            <input class="input" type="text" placeholder="Insira o Segundo Nome">
+          </div>
+        </div>
+
+          <div style="display: inline-grid;margin:13px 10px 180px 30px;padding-right: 13px;">
+            <label >Endereço</label>
+            <input class="input-2-columns" type="text" placeholder="Insira o Endereço">
+          </div>
+
+       
+
+        <div style="margin-left: 30px;margin-top: 13px;">
+          <input type="submit" class="botão" value="Salvar">
+        </div>
         <!--  -->
+  
+    
   
       </div>
     </div>
-  </main>
-  
+    </body>
   
