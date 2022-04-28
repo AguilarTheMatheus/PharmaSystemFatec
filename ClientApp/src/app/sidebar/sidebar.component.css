@@ -1,18 +1,16 @@
-
-
 .sidebar-struct{
     background-color: #283342;
-    width: 185px;
-    padding-bottom: 177px;
-    height: 100vh;
+    height: 100%;
+    margin-left: -137px;
 }
 
 .sidebar-top{
     background-color: #1D242E;
-    font-family: 'Poppins';
     width: 256px;
     height: 51px;
 }
+
+/* pharmasistem do topo */
 .sidebar-top-a-element{
     color: white;
     line-height: 48px;
@@ -25,11 +23,12 @@
     color: rgba(255, 255, 255, 0.794);
     transition: 0.2s;
     line-height: 48px;
-    font-family: 'Poppins';
     font-weight: bold;
     margin-left: 61px;
     text-decoration: none;
 }
+
+
 
 .sidebar-ul-elements{
     color:white;
@@ -49,7 +48,6 @@
 .sidebar-ul-elements li a:hover{
     color: rgba(255, 255, 255, 0.794);
     transition: 0.2s;
-    font-family: 'Poppins';
     text-decoration: none;
 }
 

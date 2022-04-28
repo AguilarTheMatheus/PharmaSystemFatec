@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -19,6 +19,7 @@ import { ConsultMedicinesComponent } from './consult-medicines/consult-medicines
 import { ConsultSalesComponent } from './consult-sales/consult-sales.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,26 +34,27 @@ import { ConsultSalesComponent } from './consult-sales/consult-sales.component';
     ConsultClientComponent,
     ConsultEmployeeComponent,
     ConsultMedicinesComponent,
-    ConsultSalesComponent,
-
+    ConsultSalesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'medicine', component: MedicinesComponent },
-      { path: 'client', component: ClientComponent },
-      { path: 'employee', component: EmployeeComponent },
-      { path: 'sales', component: SalesComponent },
 
-      // rotas das telas de consulta
-      { path: 'consult-medicine', component: ConsultMedicinesComponent },
-      { path: 'consult-client', component: ConsultClientComponent },
-      { path: 'consult-employee', component: ConsultEmployeeComponent },
-      { path: 'consult-sales', component: ConsultSalesComponent },
+        { path: '', component: HomeComponent},
+        { path: 'dashboard', component: DashboardComponent },
+        { path: 'medicine', component: MedicinesComponent },
+        { path: 'client', component: ClientComponent },
+        { path: 'employee', component: EmployeeComponent },
+        { path: 'sales', component: SalesComponent },
+        { path: 'consult-medicine', component: ConsultMedicinesComponent },
+        { path: 'consult-client', component: ConsultClientComponent },
+        { path: 'consult-employee', component: ConsultEmployeeComponent },
+        { path: 'consult-sales', component: ConsultSalesComponent },
+
+     
 
     ])
   ],
