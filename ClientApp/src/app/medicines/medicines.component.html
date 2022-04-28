@@ -14,19 +14,18 @@
         <label class="label-campos-obrigatorios">Todos os campos são obrigatórios</label>
         <br>
         <br>
-        
+        <form [formGroup]="MedicineForm"> 
 
         <div class="div-nome-e-id" >
-
-
+          
           <div class="div-nome" >
             <label>Nome</label>
-            <input class="input" type="text" placeholder="Insira o nome">
+            <input formControlName="name" class="input" type="text" placeholder="Insira o nome">
           </div>
 
           <div class="div-nome" >
             <label>Preço</label>
-            <input class="input" type="text" placeholder="R$00,00">
+            <input formControlName="price" class="input" type="text" placeholder="R$00,00">
           </div>
 
         </div>
@@ -35,7 +34,7 @@
         <div style="display: -webkit-box;margin-left: 30px; margin-top: 13px;padding-right: 13px;">
           <div style="display: inline-grid;margin-right: 10px;">
             <label for="cbxGrupo">Categoria</label>
-            <select name="cbxGrupo" class="select">
+            <select formControlName="category" name="cbxGrupo" class="select">
               <option value="A">Selecione uma Categoria</option>
               <option value="A">A</option>
               <option value="B">B</option>
@@ -53,7 +52,7 @@
         <div style="margin-left: 30px;margin-top: 13px;padding-right: 13px;">
           <label for="comoUsar">Bula</label>
           <br>
-          <input type="file" name="" id="">
+          <input formControlName="stripe" type="file" name="" id="">
         </div>
 
         <div style="margin-left: 30px;margin-top: 13px;padding-right: 13px;  margin-bottom:65px;">
@@ -62,15 +61,15 @@
           <textarea class="textarea" name="efeitosColarerais"></textarea>
         </div>
       
-      
+       </form> 
+
         <div style="margin-left: 30px;margin-top: 13px;">
           <input type="submit" class="botão" value="Salvar">
         </div>
         <!--  -->
   
-    
-  
       </div>
+    
     </div>
     </body>
   
