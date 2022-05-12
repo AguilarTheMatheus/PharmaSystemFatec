@@ -4,4 +4,4 @@ export interface Employee{
     permissionType: Number,
     email: String,
     cpf: Number,
-}
+} 
