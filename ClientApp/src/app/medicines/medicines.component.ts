@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
-import {MedicineTypeService} from './service/medicine.serve';
+import {MedicineTypeService} from './service/medicine.service';
 
 @Component({
   selector: 'app-medicines',
@@ -13,7 +13,7 @@ export class MedicinesComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private medicineService: MedicineTypeService) { 
   }
-
+ 
   ngOnInit() {
     this.createForm();
   }
@@ -23,8 +23,8 @@ export class MedicinesComponent implements OnInit {
         id: [undefined],
         name: [''],
         price: [''],
-        stripe: [''],
         category: [''],
+        // faltam 3 campos: como usar, efeitos colateirais e quantidade
     });         
 }  
 

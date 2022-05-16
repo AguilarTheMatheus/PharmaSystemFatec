@@ -13,11 +13,10 @@ import { ClientComponent } from './client/client.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { MedicinesComponent } from './medicines/medicines.component';
 import { SalesComponent } from './sales/sales.component';
-import { ConsultClientComponent } from './consult-client/consult-client.component';
-import { ConsultEmployeeComponent } from './consult-employee/consult-employee.component';
-import { ConsultMedicinesComponent } from './consult-medicines/consult-medicines.component';
-import { ConsultSalesComponent } from './consult-sales/consult-sales.component';
-
+import { ConsultClientComponent } from './client/consult-client/consult-client.component';
+import { ConsultEmployeeComponent } from './employee/consult-employee/consult-employee.component';
+import { ConsultMedicinesComponent } from './medicines/consult-medicines/consult-medicines.component';
+import { ConsultSalesComponent } from './sales/consult-sales/consult-sales.component';
 
 
 @NgModule({
@@ -49,11 +48,11 @@ import { ConsultSalesComponent } from './consult-sales/consult-sales.component';
         { path: 'client', component: ClientComponent },
         { path: 'employee', component: EmployeeComponent },
         { path: 'sales', component: SalesComponent },
-        { path: 'consult-medicine', component: ConsultMedicinesComponent },
-        { path: 'consult-client', component: ConsultClientComponent },
-        { path: 'consult-employee', component: ConsultEmployeeComponent },
-        { path: 'consult-sales', component: ConsultSalesComponent },
-
+        { path: 'medicine/consult-medicine', component: ConsultMedicinesComponent },
+        { path: 'client/consult-client', component: ConsultClientComponent },
+        { path: 'employee/consult-employee', component: ConsultEmployeeComponent },
+        { path: 'sales/consult-sales', component: ConsultSalesComponent },
+ 
      
 
     ])

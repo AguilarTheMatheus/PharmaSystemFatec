@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from "@angular/forms";
+import {ClientService} from './service/cliente.service';
 
 @Component({
   selector: 'app-client',
@@ -7,11 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientComponent implements OnInit {
 
-  constructor() { }
+  ClientForm!: FormGroup;
+
+  constructor(private fb: FormBuilder, private clientService: ClientService) { }
 
  
 
   ngOnInit() {
+    this.createForm();
   }
+
+  private createForm(){
+    this.ClientForm = this.fb.group({
+        id: [undefined],
+        firstName: [''],
+        lastName: [''],
+        phone: [''],
+        address: [''],
+        cpf: [''],
+        
+    });         
+}  
+
+private createClient(){
+  this.clientService.create(this.ClientForm.value)
+}
 
 }

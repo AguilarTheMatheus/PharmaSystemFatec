@@ -23,15 +23,15 @@
             <input formControlName="name" class="input" type="text" placeholder="Insira o nome">
           </div>
 
-          <div class="div-nome" >
+          <div class="div-nome">
             <label>Preço</label>
             <input formControlName="price" class="input" type="text" placeholder="R$00,00">
           </div>
 
         </div>
 
-
-        <div style="display: -webkit-box;margin-left: 30px; margin-top: 13px;padding-right: 13px;">
+ 
+        <div class="container-categoria">
           <div style="display: inline-grid;margin-right: 10px;">
             <label for="cbxGrupo">Categoria</label>
             <select formControlName="category" name="cbxGrupo" class="select">
@@ -42,25 +42,31 @@
             </select>
           </div>
 
-          <div style="display: inline-grid;margin-right: 10px;padding-right: 13px;">
+          <div style="display: inline-grid;margin-right: 10px;padding-left: 13px;">
             <label>Quantidade</label>
             <input class="input" type="number" placeholder="Insira a quantidade">
           </div>
         </div>
 
-        
+<!--         
         <div style="margin-left: 30px;margin-top: 13px;padding-right: 13px;">
           <label for="comoUsar">Bula</label>
           <br>
           <input formControlName="stripe" type="file" name="" id="">
+        </div> -->
+
+        <div style="margin-left: 30px;margin-top: 13px;padding-right: 13px;">
+          <label for="efeitosColarerais">Como Usar</label>
+          <br>
+          <textarea formControlName="" class="textarea" name="efeitosColarerais"></textarea>
         </div>
 
         <div style="margin-left: 30px;margin-top: 13px;padding-right: 13px;  margin-bottom:65px;">
-          <label for="efeitosColarerais">Observações</label>
+          <label for="efeitosColarerais">Efeitos Colaterais</label>
           <br>
-          <textarea class="textarea" name="efeitosColarerais"></textarea>
+          <textarea formControlName="" class="textarea" name="efeitosColarerais"></textarea>
         </div>
-      
+       
        </form> 
 
         <div style="margin-left: 30px;margin-top: 13px;">

@@ -23,4 +23,9 @@
     margin-right: 10px;
     padding-right: 13px;
 }
-
+.container-categoria{
+    display: -webkit-box;
+    margin-left: 30px; 
+    margin-top: 13px;
+    padding-right: 13px;
+}
