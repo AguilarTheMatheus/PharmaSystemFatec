@@ -5,8 +5,14 @@
 
     <div class="div-second">
 
+      
       <div class="div-label">
-        <label>PharmaSystem</label>
+        <div>
+           <label>PharmaSystem</label>
+        </div>        
+        <div style="margin-left: 50em;">          
+          <label> {{now}}</label>
+        </div>
       </div>
 
         <!-- conteúdo da página -->
@@ -34,7 +40,7 @@
 
           <div style="justify-content: end; display: flex;margin-top: 26px;margin-right: 30px;" >       
               <input type="submit" class="botãoLimpar" value="Filtrar">
-              <input [routerLink]="['/medicine']" type="submit" class="botão" value="Cadastrar">
+              <a [routerLink]="['/medicine']"  class="botão">Cadastrar</a>
           </div>
             
         
@@ -85,7 +91,7 @@
         </table>
 
         <!-- Div pra dar o tamanho da tela  -->
-        <div style="margin-bottom: 12em;"></div>
+        <div style="margin-bottom: 18em;"></div>
         
       </div>           
       </div>

@@ -2,6 +2,9 @@ export interface MedicineType{
     id:String;
     name:String;
     price:String;    
-    category:String;    
-    //falta como usar, efeitos colateirais e qtd
+    category:String;   
+    quantity:String;
+    sideEffects:String;
+    howToUse:String; 
+    
 }
