@@ -24,7 +24,17 @@ body, html{
   border-radius: 5px;
   color: white;
   border: none;
+  cursor: pointer;
   
+  font-size: large  ;
+  
+  
+}
+
+.botão:hover{
+  text-decoration: none;
+  color:white;
+  background-color: #57c59b;
 }
 
 .botãoLimpar{
@@ -36,7 +46,28 @@ body, html{
   color: white;
   border: none;
   margin-right: 15px;
+  font-size: large  ;
 }
+.botãoLimpar:hover{
+  background-color:rgb(83, 224, 253);
+}
+
+.botãoAdicionar{
+  background-color:rgb(35, 87, 244);
+  padding: 9px 57px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  margin-right: 15px;
+  font-size: large  ;
+}
+.botãoAdicionar:hover{
+  background-color:rgb(62, 108, 247);
+}
+
+
 
 .label{
   margin-bottom: 0;
@@ -77,6 +108,7 @@ body, html{
 /* Estilisações das divs comuns das telas (antes do Conteúdo da Pagina) */
 
 .div-label{
+  display: flex;
   margin-bottom: 20px;
   background-color: white;
   border-bottom: 2px solid #b8babe96;

@@ -5,8 +5,14 @@
 
     <div class="div-second">
 
+      
       <div class="div-label">
-        <label>PharmaSystem</label>
+        <div>
+           <label>PharmaSystem</label>
+        </div>        
+        <div style="margin-left: 50em;">          
+          <label> {{now}}</label>
+        </div>
       </div>
 
 
@@ -20,15 +26,7 @@
 
         <div class="div-nome-e-id" >
 
-          <div style="display: inline-grid;margin-right: 10px;">
-            <label for="cbxGrupo">Tipo de Permissão</label>
-            <select formControlName="permissionType" name="cbxGrupo" class="select">
-              <option value="">Selecione uma Permissão</option>
-              <option value="A">Administrador</option>
-              <option value="B">Visualizador</option>
-              <option value="C">Vendedor</option>
-            </select>
-          </div>
+          
 
           <div style="display: inline-grid;margin-right: 10px;padding-right: 13px;">
             <label>CPF</label>
@@ -69,7 +67,7 @@
     </form> 
          
 
-        <div style="margin-left: 30px;margin-top: 13px; margin-bottom: 1em;">
+        <div style="margin-left: 30px;margin-top: 13px; margin-bottom: 10em;">
           <input type="submit" class="botão" value="Salvar">
         </div>
         <!--  -->

@@ -5,13 +5,19 @@
 
     <div class="div-second">
 
+      
       <div class="div-label">
-        <label>PharmaSystem</label>
+        <div>
+           <label>PharmaSystem</label>
+        </div>        
+        <div style="margin-left: 50em;">          
+          <label> {{now}}</label>
+        </div>
       </div>
 
         <!-- conteúdo da página -->
         <h3 class="h3-titulo">Cadastrar Medicamento</h3>
-        <label class="label-campos-obrigatorios">Todos os campos são obrigatórios</label>
+        <label class="label-campos-obrigatorios">-Todos os campos são obrigatórios.</label>
         <br>
         <br>
         <form [formGroup]="MedicineForm"> 
@@ -44,33 +50,28 @@
 
           <div style="display: inline-grid;margin-right: 10px;padding-left: 13px;">
             <label>Quantidade</label>
-            <input class="input" type="number" placeholder="Insira a quantidade">
+            <input formControlName="quantity" class="input" type="number" placeholder="Insira a quantidade">
           </div>
         </div>
 
-<!--         
-        <div style="margin-left: 30px;margin-top: 13px;padding-right: 13px;">
-          <label for="comoUsar">Bula</label>
-          <br>
-          <input formControlName="stripe" type="file" name="" id="">
-        </div> -->
+
 
         <div style="margin-left: 30px;margin-top: 13px;padding-right: 13px;">
           <label for="efeitosColarerais">Como Usar</label>
           <br>
-          <textarea formControlName="" class="textarea" name="efeitosColarerais"></textarea>
+          <textarea formControlName="howToUse" class="textarea" name="efeitosColarerais"></textarea>
         </div>
 
         <div style="margin-left: 30px;margin-top: 13px;padding-right: 13px;  margin-bottom:65px;">
           <label for="efeitosColarerais">Efeitos Colaterais</label>
           <br>
-          <textarea formControlName="" class="textarea" name="efeitosColarerais"></textarea>
+          <textarea formControlName="sideEffects" class="textarea" name="efeitosColarerais"></textarea>
         </div>
        
        </form> 
 
-        <div style="margin-left: 30px;margin-top: 13px;">
-          <input type="submit" class="botão" value="Salvar">
+        <div style="margin-left: 30px;margin-top: 13px; margin-bottom: 10em;">
+          <input   type="submit" class="botão" value="Salvar">
         </div>
         <!--  -->
   
