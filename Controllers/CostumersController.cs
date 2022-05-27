@@ -33,7 +33,7 @@ namespace PharmaSystem.Controllers
 
         
         [HttpGet]
-        [Route("costumer/get/{Id:Guid}")]
+        [Route("costumer/get/{id}")]
         public async Task<IActionResult> GetCostumerById(Guid id)
         {
 
@@ -56,7 +56,7 @@ namespace PharmaSystem.Controllers
         }
 
         [HttpPut]
-        [Route("costumer/update/{Id:Guid}")]
+        [Route("costumer/update/{id}")]
         public async Task<IActionResult> UpdateCostumer(CostumerViewModel costumerView, [FromRoute]Guid id)
         {
             var costumer = _costumerRepository.Find(id);
@@ -82,7 +82,7 @@ namespace PharmaSystem.Controllers
         }
 
         [HttpPost]
-        [Route("costumer/delete/{Id:Guid}")]
+        [Route("costumer/delete/{id}")]
         public async Task<IActionResult> DeleteCostumer([FromRoute]Guid id)
         {
             _costumerRepository.Remove(id);

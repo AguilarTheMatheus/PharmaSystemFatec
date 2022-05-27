@@ -33,7 +33,7 @@ namespace PharmaSystem.Controllers
 
 
         [HttpGet]
-        [Route("Medicine/get/{Id:Guid}")]
+        [Route("Medicine/get/{id}")]
         public async Task<IActionResult> GetMedicineById(Guid id)
         {
 
@@ -56,7 +56,7 @@ namespace PharmaSystem.Controllers
         }
 
         [HttpPost]
-        [Route("Medicine/delete/{Id:Guid}")]
+        [Route("Medicine/delete/{id}")]
         public async Task<IActionResult> DeleteMedicine([FromRoute] Guid id)
         {
             _MedicineRepository.Remove(id);
