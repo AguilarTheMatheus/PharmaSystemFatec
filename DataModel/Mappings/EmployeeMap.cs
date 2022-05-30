@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PharmaSystem.DataModel.Model;
 
@@ -23,8 +23,12 @@ namespace PharmaSystem.DataModel.Mappings
                 .IsRequired();
 
             builder.Property(p => p.CPF)
-                .HasColumnType("integer")
+                .HasColumnType("varchar(12)")
                 .IsRequired();
-        }
+
+            builder.Property(p => p.Password)
+                .HasColumnType("varchar(50)")
+                .IsRequired();
+    }
     }
 }

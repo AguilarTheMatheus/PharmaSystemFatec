@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PharmaSystem.DataModel.Model;
@@ -26,7 +26,7 @@ namespace PharmaSystem.DataModel.Mappings
                 .HasColumnType("integer");
 
             builder.Property(p => p.CPF)
-                .HasColumnType("integer")
+                .HasColumnType("varchar(12)")
                 .IsRequired();
         }
     }

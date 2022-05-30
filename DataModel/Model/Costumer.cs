@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,6 +14,6 @@ namespace PharmaSystem.DataModel.Model
         public string LastName { get; set; }
         public int PhoneNumber { get; set; }
         public string Address { get; set; }
-        public int CPF { get; set; }
+        public string CPF { get; set; }
     }
 }
