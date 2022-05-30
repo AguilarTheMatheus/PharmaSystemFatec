@@ -47,26 +47,24 @@ public  obterDataAtual() {
 
   private createForm(){
     this.MedicineForm = this.fb.group({
-        id: [undefined],
+        // id: [undefined],
         name: [''],
         price: [''],
         category: [''],
-        quantity: [''],
-        sideEffects: [''],
-        howToUse: [''],
-        // faltam 3 campos no bd: como usar, efeitos colateirais e quantidade
+        
     });         
 }  
 
-  private createMedicine(){
-    console.log(this.MedicineForm.value);
-    this.medicineService.create(this.MedicineForm.value)
+   createMedicine(){
+    this.medicineService.create(this.MedicineForm.value).subscribe(()=>{
+      console.log("criado com sucesso!");
+    },error=>console.log("erro ", error));
   }
 
-  private onCreate(){
-    console.log("entrou");
-    this.createMedicine();
-  }
+
+  
+
+  
 
  
 

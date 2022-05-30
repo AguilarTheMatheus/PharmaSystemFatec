@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientService } from './../service/cliente.service';
+import PageResult from "./../../util/page-result.model";
+import {Client} from "./../client.modal";
 
 @Component({
   selector: 'app-consult-client',
@@ -7,14 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultClientComponent implements OnInit {
 
-  constructor() { }
+  constructor( private clientService:ClientService) { }
 
   ngOnInit() {
+    this.getAll();
     this.obterDataAtual();
   }
 
 
   now : any;
+  pageResult: PageResult<Client> = new PageResult();
+  listClients?:Client[];
 
   public  obterDataAtual() {
     const date = new Date();
@@ -34,6 +40,31 @@ export class ConsultClientComponent implements OnInit {
     var valor = (diaValor).concat('/').concat(mesValor).concat('/').concat(anoValor);
     this.now = valor;
     return valor;
+  }
+
+  
+
+  getAll(){
+    console.log('entrou get');
+    this.clientService.getAll().subscribe((response)=>{
+      
+      console.log('primeiro response',response);
+
+      if(response){
+        this.listClients = response;
+      }
+
+      console.log('lista',this.listClients);
+    },error=>console.log("erro ", error));;
+  } 
+
+  delete(Id: any){
+    console.log("id do parametro:", Id);
+
+    this.clientService.delete(Id).subscribe(()=>{
+      console.log("excluido com sucesso!");
+    },error=>console.log("erro ", error));
+    
   }
   
 

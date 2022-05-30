@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import {ClientService} from './service/cliente.service';
+import {Client} from "./client.modal";
 
 @Component({
   selector: 'app-client',
@@ -10,7 +11,19 @@ import {ClientService} from './service/cliente.service';
 export class ClientComponent implements OnInit {
 
   ClientForm!: FormGroup;
-  //date: any;
+  
+
+
+@Input()
+editing: boolean;
+
+@Output()
+onSubmit = new EventEmitter<Client>();
+
+@Output()
+OnCancel = new EventEmitter<void>();
+//date: any;
+
 
   constructor(private fb: FormBuilder, private clientService: ClientService) { }
 
@@ -50,7 +63,7 @@ public  obterDataAtual() {
 
   private createForm(){
     this.ClientForm = this.fb.group({
-        id: [undefined],
+        // id: [undefined],
         firstName: [''],
         lastName: [''],
         phone: [''],
@@ -60,8 +73,17 @@ public  obterDataAtual() {
     });         
 }  
 
-private createClient(){
-  this.clientService.create(this.ClientForm.value)
+onCancelButton(){
+  this.OnCancel.emit();
+  }
+
+  
+  
+
+ createClient(){
+  this.clientService.create(this.ClientForm.value).subscribe(()=>{
+    console.log("criado com sucesso!");
+  },error=>console.log("erro ", error));
 }
 
 }

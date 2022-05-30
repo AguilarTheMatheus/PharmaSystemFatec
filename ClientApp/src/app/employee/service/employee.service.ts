@@ -10,12 +10,28 @@ import { Employee } from '../employee.modal';
 })
 export class EmployeeService{
 
-    readonly URI:string  = ``; //endpoint
+    readonly URI:string  = `/api/v1/employee/new`; //endpoint
 
     constructor(private http: HttpClient){}
 
-    create(employee:Employee):Observable<any>{
-        return this.http.post<Employee>(`${this.URI}`,employee);
-    }
+   
+
+
+    getAll():Observable<Employee[]>{
+        return this.http.get<Employee[]>(`/api/v1/costumer/get`);
+      }
+          
+      create(employee:Employee):Observable<any>{
+      return this.http.post<Employee>(`/api/v1/costumer/new`,employee);
+      }
+  
+      
+      delete(employeeId: Employee): Observable<any>{
+      return this.http.delete<Employee>(`/api/v1/costumer/delete/${employeeId}`);
+      }
+      
+      update(employeeId:Employee,employee:Employee):Observable<any>{
+      return this.http.put<Employee>(`/api/v1/costumer/put/${employeeId}`,employee);
+      }
 
 }

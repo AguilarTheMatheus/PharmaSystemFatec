@@ -59,8 +59,8 @@
 
         <div style="display: -webkit-box;margin-bottom: 100px;margin-left: 30px; margin-top: 13px;padding-right: 13px;">
         <div style="display: inline-grid;margin-right: 10px;padding-right: 13px;">
-          <label>Senha</label>
-          <input formControlName="" class="input" type="password" placeholder="Insira a Senha">
+          <label>Número único da Permissão</label>
+          <input formControlName="permissionType" class="input" type="number" placeholder="Insira a Senha">
         </div>
       </div>
       
@@ -68,7 +68,7 @@
          
 
         <div style="margin-left: 30px;margin-top: 13px; margin-bottom: 10em;">
-          <input type="submit" class="botão" value="Salvar">
+          <input (click)="createEmployee()" type="submit" class="botão" value="Salvar">
         </div>
         <!--  -->
   

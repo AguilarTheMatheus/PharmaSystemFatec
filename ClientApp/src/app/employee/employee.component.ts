@@ -44,7 +44,7 @@ public  obterDataAtual() {
 
   private createForm(){
     this.EmployeeForm = this.fb.group({
-        id: [undefined],
+        // id: [undefined],
         firstName: [''],
         lastName: [''],
         permissionType: [''],
@@ -55,9 +55,12 @@ public  obterDataAtual() {
 }  
 
 
-private createEmployee(){
-  this.employeeService.create(this.EmployeeForm.value)
+ createEmployee(){
+  this.employeeService.create(this.EmployeeForm.value).subscribe(()=>{
+    console.log("criado com sucesso!");
+  },error=>console.log("erro ", error));
 }
+
 
 
 }

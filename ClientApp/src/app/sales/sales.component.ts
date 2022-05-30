@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { SalesService } from './service/sales.service';
 
 @Component({
   selector: 'app-sales',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalesComponent implements OnInit {
 
-  constructor() { }
+  SalesForm!: FormGroup;
+
+  constructor(private fb: FormBuilder, private salesService: SalesService) { }
 
   ngOnInit() {
+    this.createForm();
     this.obterDataAtual();
   }
 
@@ -36,5 +41,29 @@ public  obterDataAtual() {
   this.now = valor;
   return valor;
 }
+
+
+private createForm(){
+  this.SalesForm = this.fb.group({
+      // product: [''], 
+      totalValue: [''],
+      // category: [''],
+      employeeId: [''],
+      costumerId: [''],
+      Discount:[''],
+      // category:[''],
+      // quantity: [''],
+      
+  });         
+}  
+
+createSale(){
+  this.salesService.create(this.SalesForm.value).subscribe(()=>{
+    console.log("criado com sucesso!");
+  },error=>console.log("erro ", error));
+}
+
+
+
 
 }

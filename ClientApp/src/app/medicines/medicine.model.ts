@@ -1,10 +1,11 @@
 export interface MedicineType{
-    id:String;
+    // id:Guid;
     name:String;
-    price:String;    
-    category:String;   
-    quantity:String;
-    sideEffects:String;
-    howToUse:String; 
+    price:Number;    
+    category:String;
+    //stripe:Number;
+    // quantity:String;
+    // sideEffects:String;
+    // howToUse:String; 
     
 }
