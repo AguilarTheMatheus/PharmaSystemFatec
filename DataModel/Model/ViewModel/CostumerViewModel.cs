@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace PharmaSystem.DataModel.Model.ViewModel
 {
@@ -8,6 +8,6 @@ namespace PharmaSystem.DataModel.Model.ViewModel
         public string LastName { get; set; }
         public int PhoneNumber { get; set; }
         public string Address { get; set; }
-        public int CPF { get; set; }
+        public string CPF { get; set; }
     }
 }

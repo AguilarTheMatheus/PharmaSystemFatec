@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,6 +15,7 @@ namespace PharmaSystem.DataModel.Model
         public string Email { get; set; }
         public int CPF { get; set; }
 
-        public Permissions Permissions { get; set; }
+        [Required]
+        public string Password { get; set; }
     }
 }
