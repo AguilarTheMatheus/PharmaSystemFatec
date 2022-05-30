@@ -21,23 +21,23 @@
         <br>
         <br>
 
-        <form [formGroup]="" style="margin-left: -28px;"> 
+        <form [formGroup]="SalesForm" style="margin-left: -28px;"> 
 
         <div class="div-nome-e-id" >
           
-          <div class="div-nome" >
+          <!-- <div class="div-nome" >
             <label>* Produto</label>
-            <input formControlName="name" class="input" type="text" placeholder="Insira o nome do medicamento">
-          </div>
+            <input formControlName="product" class="input" type="text" placeholder="Insira o nome do medicamento">
+          </div> -->
 
-          <div class="div-nome" >
+           <div class="div-nome" >
             <label>* Quantidade</label>
-            <input formControlName="price" class="input" type="text" placeholder="0">
-          </div>
+            <input formControlName="Discount" class="input" type="text" placeholder="0">
+          </div> 
 
           <div class="div-nome" >
             <label>* Preço</label>
-            <input formControlName="price" class="input" type="text" placeholder="R$00,00">
+            <input formControlName="totalValue" class="input" type="text" placeholder="R$00,00">
           </div>
 
         </div>
@@ -46,15 +46,15 @@
           
           <div class="div-nome" >
             <label>Nome Cliente</label>
-            <input formControlName="name" class="input" type="text" placeholder="Insira o nome do Cliente">
+            <input formControlName="costumerId" class="input" type="text" placeholder="Insira o nome do Cliente">
           </div>
 
           <div class="div-nome" >
             <label>Nome Funcionário</label>
-            <input formControlName="price" class="input" type="text" placeholder="Insira o nome do Funcionário">
+            <input formControlName="employeeId" class="input" type="text" placeholder="Insira o nome do Funcionário">
           </div>
 
-          <div class="div-nome" >
+          <!-- <div class="div-nome" >
             <label for="cbxGrupo">Grupo</label>
             <select formControlName="category" name="cbxGrupo" class="select">
               <option value="A">Selecione um Grupo</option>
@@ -62,7 +62,7 @@
               <option value="B">B</option>
               <option value="-">Other</option>
             </select>
-            </div>
+            </div> -->
 
         </div>
 
@@ -108,7 +108,7 @@
         
       </div>  
       <div style="margin-left: 30px;margin-top: 50px; margin-bottom: 10em;;">
-        <input   type="submit" class="botão" value="Salvar">
+        <input  (click)="createSale()" type="submit" class="botão" value="Salvar">
         <label class="labelTotal">Total: R$8,00</label>
       </div>
 

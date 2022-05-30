@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
-import {ConsultEmployeeService} from './service/consult-employee.service';
+import { Employee } from '../employee.modal';
+import { EmployeeService } from '../service/employee.service';
+
 
 @Component({
   selector: 'app-consult-employee',
@@ -12,9 +14,10 @@ export class ConsultEmployeeComponent implements OnInit {
   
   ConsultEmployeeForm!: FormGroup;
 
-  constructor(private filterb: FormBuilder, private consultEmployeeService: ConsultEmployeeService) { }
+  constructor(private filterb: FormBuilder, private employeeService: EmployeeService) { }
 
   ngOnInit() {
+    this.getAll();
     this.obterDataAtual();
   }
 
@@ -22,6 +25,7 @@ export class ConsultEmployeeComponent implements OnInit {
 
   
 now : any;
+listEmployee?:Employee[];
 
 public  obterDataAtual() {
   const date = new Date();
@@ -45,7 +49,7 @@ public  obterDataAtual() {
 
   private createFilterForm(){
     this.ConsultEmployeeForm = this.filterb.group({
-        id: [undefined],
+        // id: [undefined],
         firstName: [''],
         permissionType: [''],
         cpf: [''],
@@ -54,8 +58,27 @@ public  obterDataAtual() {
 }  
 
 
-private createFilterEmployee(){
-  this.consultEmployeeService.create(this.ConsultEmployeeForm.value)
-}
+// private createFilterEmployee(){
+//   this.consultEmployeeService.create(this.ConsultEmployeeForm.value)
+// }
+
+
+
+getAll(){
+  console.log('entrou get');
+  this.employeeService.getAll().subscribe((response)=>{
+    
+    console.log('primeiro response',response);
+
+    if(response){
+      this.listEmployee = response;
+    }
+
+    console.log('lista',this.listEmployee);
+  },error=>console.log("erro ", error));;
+} 
+
+
+
 
 }

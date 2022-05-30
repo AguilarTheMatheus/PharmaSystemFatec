@@ -20,7 +20,7 @@
         <label class="label-campos-obrigatorios">Todos os campos são obrigatórios</label>
         <br>
         <br>
-        <form [formGroup]="ClientForm"> 
+        <form [formGroup]="ClientForm" > 
 
         <div class="div-nome-e-id" >
 
@@ -32,7 +32,7 @@
 
           <div class="div-id" >
             <label>Telefone</label>
-            <input formControlName="phone" class="input" type="text" placeholder="(00)0000-0000">
+            <input formControlName="phoneNumber" class="input" type="text" placeholder="(00)0000-0000">
           </div>
 
         </div>
@@ -60,8 +60,12 @@
        
 
         <div style="margin-left: 30px;margin-top: 13px;margin-bottom: 10em;">
-          <input type="submit" class="botão" value="Salvar">
+          <!-- <button class="botão">{{editing ? 'Atualizar' : 'Cadastrar'  }}</button> -->
+          <!-- <button class="botão">  (click)="createClient()" </button> -->
+          <input  (click)="createClient()" type="submit" class="botão" value="Salvar">
+          <!-- <button (click)="onCancelButton()" style="margin-left:10px;" class="botão">Cancelar</button> -->
         </div>
+          
         <!--  -->
   
     

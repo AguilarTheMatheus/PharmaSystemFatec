@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MedicineType } from '../medicine.model';
+import { MedicineTypeService } from '../service/medicine.service';
 
 @Component({
   selector: 'app-consult-medicines',
@@ -7,15 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultMedicinesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private medicineService:MedicineTypeService) { }
 
   ngOnInit() {
+    this.getAll();
     this.obterDataAtual();
   }
 
 
   
 now : any;
+listMedicines?:MedicineType[];
 
 public  obterDataAtual() {
   const date = new Date();
@@ -36,5 +40,20 @@ public  obterDataAtual() {
   this.now = valor;
   return valor;
 }
+
+
+getAll(){
+  console.log('entrou get');
+  this.medicineService.getAll().subscribe((response)=>{
+    
+    console.log('primeiro response',response);
+
+    if(response){
+      this.listMedicines = response;
+    }
+
+    console.log('lista',this.listMedicines);
+  },error=>console.log("erro ", error));;
+} 
 
 }
