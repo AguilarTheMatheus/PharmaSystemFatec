@@ -1,11 +1,9 @@
 export interface Sales{
     id:String;
-    // product:String;
+    medicine:String;
     totalValue:Number;    
-    employeeId:String;
-    costumerId:String; 
-    Discount: Number;
-    // category:String;
-    // quantity:Number;
+    employee:String;
+    costumer:String; 
+   
     
 }

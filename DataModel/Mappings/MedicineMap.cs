@@ -18,6 +18,10 @@ namespace PharmaSystem.DataModel.Mappings
           .HasColumnType("float")
           .IsRequired();
 
+      builder.Property(p => p.Amount)
+          .HasColumnType("integer")
+          .IsRequired();
+
       builder.Property(p => p.Category)
           .HasColumnType("varchar(100)")
           .IsRequired();
@@ -25,6 +29,7 @@ namespace PharmaSystem.DataModel.Mappings
       builder.Property(p => p.Amount)
           .HasColumnType("integer")
           .IsRequired();
+
     }
   }
 }

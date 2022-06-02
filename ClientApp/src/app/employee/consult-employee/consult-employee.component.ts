@@ -13,6 +13,8 @@ import { EmployeeService } from '../service/employee.service';
 export class ConsultEmployeeComponent implements OnInit {
   
   ConsultEmployeeForm!: FormGroup;
+  now : any;
+listEmployee?:Employee[];
 
   constructor(private filterb: FormBuilder, private employeeService: EmployeeService) { }
 
@@ -24,8 +26,7 @@ export class ConsultEmployeeComponent implements OnInit {
 
 
   
-now : any;
-listEmployee?:Employee[];
+
 
 public  obterDataAtual() {
   const date = new Date();
@@ -47,38 +48,37 @@ public  obterDataAtual() {
   return valor;
 }
 
-  private createFilterForm(){
+  private setFilterForm(){
     this.ConsultEmployeeForm = this.filterb.group({
-        // id: [undefined],
         firstName: [''],
-        permissionType: [''],
         cpf: [''],
         
     });         
 }  
 
 
-// private createFilterEmployee(){
-//   this.consultEmployeeService.create(this.ConsultEmployeeForm.value)
-// }
 
 
 
 getAll(){
-  console.log('entrou get');
+
   this.employeeService.getAll().subscribe((response)=>{
-    
-    console.log('primeiro response',response);
 
     if(response){
       this.listEmployee = response;
     }
 
-    console.log('lista',this.listEmployee);
-  },error=>console.log("erro ", error));;
+  },error=>alert('Erro, contate o desenvolvedor do sistema. Detalhes do erro: '+ error));
 } 
 
+delete(Id: any){
 
+  this.employeeService.delete(Id).subscribe(()=>{
+    alert('Funcionário excluído com Sucesso');
+    window.location.reload();
+  },error=>alert('Erro, contate o desenvolvedor do sistema. Detalhes do erro: '+ error));
+  
+}
 
 
 }

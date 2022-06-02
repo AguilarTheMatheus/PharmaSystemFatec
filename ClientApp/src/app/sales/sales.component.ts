@@ -9,9 +9,11 @@ import { SalesService } from './service/sales.service';
 })
 export class SalesComponent implements OnInit {
 
-  SalesForm!: FormGroup;
+  salesForm!: FormGroup;
+  now : any;
 
-  constructor(private fb: FormBuilder, private salesService: SalesService) { }
+  constructor(private fb: FormBuilder, private salesService: SalesService) {
+   }
 
   ngOnInit() {
     this.createForm();
@@ -20,7 +22,6 @@ export class SalesComponent implements OnInit {
 
 
   
-now : any;
 
 public  obterDataAtual() {
   const date = new Date();
@@ -44,24 +45,32 @@ public  obterDataAtual() {
 
 
 private createForm(){
-  this.SalesForm = this.fb.group({
-      // product: [''], 
-      totalValue: [''],
-      // category: [''],
-      employeeId: [''],
-      costumerId: [''],
-      Discount:[''],
-      // category:[''],
-      // quantity: [''],
+  this.salesForm = this.fb.group({
+    Medicineid:[''],
+    TotalValue: [''],
+    EmployeeID: [''],
+    CostumerID: [''],
       
   });         
 }  
 
 createSale(){
-  this.salesService.create(this.SalesForm.value).subscribe(()=>{
-    console.log("criado com sucesso!");
-  },error=>console.log("erro ", error));
+  this.salesService.create(this.salesForm.value).subscribe((response)=>{
+    console.log(response);
+    alert('Venda efetuada com Sucesso');
+    window.location.href="/sales/consult-sales";
+  },error=>alert('Erro, contate o desenvolvedor do sistema. Detalhes do erro: '+ error));
+
 }
+
+
+  submitForm(){    
+    if(this.salesForm.valid){
+        const form = this.salesForm.value;
+        this.salesService.create(form);
+    }
+} 
+
 
 
 

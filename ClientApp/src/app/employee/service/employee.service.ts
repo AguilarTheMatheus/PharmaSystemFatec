@@ -10,28 +10,30 @@ import { Employee } from '../employee.modal';
 })
 export class EmployeeService{
 
-    readonly URI:string  = `/api/v1/employee/new`; //endpoint
-
     constructor(private http: HttpClient){}
 
    
 
 
     getAll():Observable<Employee[]>{
-        return this.http.get<Employee[]>(`/api/v1/costumer/get`);
+        return this.http.get<Employee[]>(`http://localhost:5510/v1/employee/get`);
       }
+
+       getById(employeeId:any):Observable<any>{
+      return this.http.get<Employee>(`http://localhost:5510/v1/employee/get/${employeeId}`);
+    }
           
       create(employee:Employee):Observable<any>{
-      return this.http.post<Employee>(`/api/v1/costumer/new`,employee);
+      return this.http.post<Employee>(`http://localhost:5510/v1/Employee/new`,employee);
       }
   
       
       delete(employeeId: Employee): Observable<any>{
-      return this.http.delete<Employee>(`/api/v1/costumer/delete/${employeeId}`);
-      }
+      return this.http.post<Employee>(`http://localhost:5510/v1/Employee/delete/${employeeId}`,'');
+      } 
       
       update(employeeId:Employee,employee:Employee):Observable<any>{
-      return this.http.put<Employee>(`/api/v1/costumer/put/${employeeId}`,employee);
+      return this.http.put<Employee>(`http://localhost:5510/v1/employee/update/${employeeId}`,employee);
       }
-
+ 
 }

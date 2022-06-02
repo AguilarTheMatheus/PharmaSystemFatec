@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Sales } from '../Sales.model';
+import { SalesService } from '../service/sales.service';
 
 @Component({
   selector: 'app-consult-sales',
@@ -7,15 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultSalesComponent implements OnInit {
 
-  constructor() { }
+  listSales?:Sales[];
+  now : any;
+
+
+  constructor(private filterb: FormBuilder, private salesService: SalesService) { }
 
   ngOnInit() {
+    this.getAll();
     this.obterDataAtual();
   }
 
 
   
-now : any;
 
 public  obterDataAtual() {
   const date = new Date();
@@ -36,5 +43,19 @@ public  obterDataAtual() {
   this.now = valor;
   return valor;
 }
+
+
+getAll(){
+
+  this.salesService.getAll().subscribe((response)=>{
+    console.log("entrou",response);
+
+    if(response){
+
+      this.listSales = response;
+    }
+
+  },error=>alert('Erro ao carregar a lista de vendas, contate o desenvolvedor do sistema. Detalhes do erro: '+ error));
+} 
 
 }

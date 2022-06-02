@@ -8,7 +8,7 @@
       
       <div class="div-label">
         <div>
-           <label>PharmaSystem</label>
+           <label>PHARMASYSTEM</label>
         </div>        
         <div style="margin-left: 50em;">          
           <label> {{now}}</label>
@@ -17,12 +17,12 @@
 
 
         <!-- conteúdo da página -->
-        <h3 class="h3-titulo">Cadastrar Funcionário</h3>
+        <h3 class="h3-titulo">{{editing ? 'Atualizar Funcionário' : 'Cadastrar Funcionário'  }}</h3> 
         <label class="label-campos-obrigatorios">Todos os campos são obrigatórios</label>
         <br>
         <br>
         
-        <form [formGroup]="EmployeeForm"> 
+        <form [formGroup]="EmployeeForm" (ngSubmit)="submitForm()" > 
 
         <div class="div-nome-e-id" >
 
@@ -59,8 +59,8 @@
 
         <div style="display: -webkit-box;margin-bottom: 100px;margin-left: 30px; margin-top: 13px;padding-right: 13px;">
         <div style="display: inline-grid;margin-right: 10px;padding-right: 13px;">
-          <label>Número único da Permissão</label>
-          <input formControlName="permissionType" class="input" type="number" placeholder="Insira a Senha">
+          <label>Senha</label>
+          <input formControlName="password" class="input" type="password" placeholder="Insira a Senha">
         </div>
       </div>
       
@@ -68,10 +68,12 @@
          
 
         <div style="margin-left: 30px;margin-top: 13px; margin-bottom: 10em;">
-          <input (click)="createEmployee()" type="submit" class="botão" value="Salvar">
+          <button (click)="createEmployee()" class="botão">{{editing ? 'Atualizar' : 'Cadastrar'  }}</button>
         </div>
+
+        
         <!--  -->
-  
+   
     
   
       </div>

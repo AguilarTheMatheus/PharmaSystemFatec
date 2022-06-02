@@ -13,27 +13,26 @@ export class MedicineTypeService{
 
     constructor(private http: HttpClient){}
 
-    // create(medicine:MedicineType):Observable<any>{
-    //     console.log(this.URI,medicine);
-    //     return this.http.post<MedicineType>(`${this.URI}`,medicine);
-    // }
-
 
     getAll():Observable<MedicineType[]>{
-        return this.http.get<MedicineType[]>(`/api/v1/medicine/get`);
+        return this.http.get<MedicineType[]>(`http://localhost:5510/v1/medicine/get`);
       }
           
     create(medicine:MedicineType):Observable<any>{
-    return this.http.post<MedicineType>(`/api/v1/medicine/new`,medicine);
+    return this.http.post<MedicineType>(`http://localhost:5510/v1/medicine/new`,medicine);
     }
+
+    getById(medicineId:any):Observable<any>{
+        return this.http.get<MedicineType>(`http://localhost:5510/v1/medicine/get/${medicineId}`);
+      }
 
     
     delete(medicineId: MedicineType): Observable<any>{
-    return this.http.delete<MedicineType>(`/api/v1/medicine/delete/${medicineId}`);
+    return this.http.post<MedicineType>(`http://localhost:5510/v1/Medicine/delete/${medicineId}`,'');
     }
     
     update(medicineId:MedicineType,medicine:MedicineType):Observable<any>{
-    return this.http.put<MedicineType>(`/api/v1/medicine/put/${medicineId}`,medicine);
+    return this.http.put<MedicineType>(`http://localhost:5510/v1/medicine/update/${medicineId}`,medicine);
     }
-
+ 
 }

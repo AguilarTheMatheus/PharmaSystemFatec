@@ -17,7 +17,7 @@ export class ConsultMedicinesComponent implements OnInit {
   }
 
 
-  
+    
 now : any;
 listMedicines?:MedicineType[];
 
@@ -45,15 +45,23 @@ public  obterDataAtual() {
 getAll(){
   console.log('entrou get');
   this.medicineService.getAll().subscribe((response)=>{
-    
-    console.log('primeiro response',response);
 
     if(response){
       this.listMedicines = response;
     }
-
-    console.log('lista',this.listMedicines);
-  },error=>console.log("erro ", error));;
+  },error=>alert('Erro, contate o desenvolvedor do sistema. Detalhes do erro: '+ error));
 } 
+
+
+delete(Id: any){
+
+  this.medicineService.delete(Id).subscribe(()=>{
+    alert('Medicamento excluído com Sucesso');
+    window.location.reload();
+  },error=>alert('Erro, contate o desenvolvedor do sistema. Detalhes do erro: '+ error));
+  
+}
+
+
 
 }

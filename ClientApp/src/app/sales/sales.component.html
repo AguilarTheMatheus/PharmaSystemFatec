@@ -17,26 +17,23 @@
 
         <!-- conteúdo da página -->
         <h3 class="h3-titulo">Vender</h3>
-        <label class="label-campos-obrigatorios">-Os campos com * são obrigatórios.</label>
+        <label class="label-campos-obrigatorios">-Todos os campos são obrigatórios.</label>
         <br>
         <br>
 
-        <form [formGroup]="SalesForm" style="margin-left: -28px;"> 
+        <form [formGroup]="salesForm" (ngSubmit)="submitForm()" style="margin-left: -28px;"> 
 
         <div class="div-nome-e-id" >
           
-          <!-- <div class="div-nome" >
-            <label>* Produto</label>
-            <input formControlName="product" class="input" type="text" placeholder="Insira o nome do medicamento">
-          </div> -->
+         
 
            <div class="div-nome" >
-            <label>* Quantidade</label>
-            <input formControlName="Discount" class="input" type="text" placeholder="0">
+            <label>* Id Produto</label>
+            <input formControlName="medicine" class="input" type="text" placeholder="0">
           </div> 
 
           <div class="div-nome" >
-            <label>* Preço</label>
+            <label>* Valor Total</label>
             <input formControlName="totalValue" class="input" type="text" placeholder="R$00,00">
           </div>
 
@@ -45,24 +42,16 @@
         <div class="div-nome-e-id" >
           
           <div class="div-nome" >
-            <label>Nome Cliente</label>
-            <input formControlName="costumerId" class="input" type="text" placeholder="Insira o nome do Cliente">
+            <label>Id Cliente</label>
+            <input formControlName="costumer" class="input" type="text" placeholder="Insira o nome do Cliente">
           </div>
 
           <div class="div-nome" >
-            <label>Nome Funcionário</label>
-            <input formControlName="employeeId" class="input" type="text" placeholder="Insira o nome do Funcionário">
+            <label>Id Funcionário</label>
+            <input formControlName="employee" class="input" type="text" placeholder="Insira o nome do Funcionário">
           </div>
 
-          <!-- <div class="div-nome" >
-            <label for="cbxGrupo">Grupo</label>
-            <select formControlName="category" name="cbxGrupo" class="select">
-              <option value="A">Selecione um Grupo</option>
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="-">Other</option>
-            </select>
-            </div> -->
+         
 
         </div>
 
@@ -91,8 +80,8 @@
             <th>Nome Func.</th>
             <th>Excluir</th>
           </tr>
-          <tr>
-            <td>Dipirona Sódica 500mg Genérico Medley 10 Comprimidos</td>
+          <tr >
+            <td>Dipirona</td>
             <td>Dor</td>
             <td>2</td>
             <td>R$4,00</td>
@@ -109,7 +98,7 @@
       </div>  
       <div style="margin-left: 30px;margin-top: 50px; margin-bottom: 10em;;">
         <input  (click)="createSale()" type="submit" class="botão" value="Salvar">
-        <label class="labelTotal">Total: R$8,00</label>
+        
       </div>
 
       </div>

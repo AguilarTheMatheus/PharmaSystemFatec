@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { MedicineType } from './medicine.model';
 import {MedicineTypeService} from './service/medicine.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-medicines',
@@ -10,19 +12,46 @@ import {MedicineTypeService} from './service/medicine.service';
 export class MedicinesComponent implements OnInit {
 
   MedicineForm!: FormGroup;
+now : any;
+medicineId:any;
+medicine: MedicineType;
 
-  constructor(private fb: FormBuilder, private medicineService: MedicineTypeService) { 
+
+
+@Output()
+onSubmit = new EventEmitter<MedicineType>();
+
+@Output()
+OnCancel = new EventEmitter<void>();
+
+
+
+
+  constructor(private fb: FormBuilder, private medicineService: MedicineTypeService,private route: ActivatedRoute) { 
   }
  
   ngOnInit() {
+    this.medicineId = this.route.snapshot.paramMap.get('id');
     this.createForm();
     this.obterDataAtual();
+    if(this.editing){
+      this.loadMedicine();
+  }
   }
 
+  //metodo loadMedicine
+  loadMedicine(){
+    this.medicineService.getById(this.medicineId!)
+    .subscribe((medicine) => {
+            this.medicine = medicine;         
+            this.MedicineForm.patchValue({
+                ...medicine              
+            });           
+        });
+     }
 
   
   
-now : any;
 
 public  obterDataAtual() {
   const date = new Date();
@@ -47,21 +76,50 @@ public  obterDataAtual() {
 
   private createForm(){
     this.MedicineForm = this.fb.group({
-        // id: [undefined],
+        
         name: [''],
         price: [''],
         category: [''],
+        amounty:[''],
         
     });         
 }  
 
-   createMedicine(){
-    this.medicineService.create(this.MedicineForm.value).subscribe(()=>{
-      console.log("criado com sucesso!");
-    },error=>console.log("erro ", error));
+onCancelButton(){
+  this.OnCancel.emit();
   }
 
 
+
+  createMedicine(){
+    if(this.editing){
+      this.medicineService.update(this.medicineId,this.MedicineForm.value).subscribe(()=>{
+        alert('Medicamento editado com Sucesso');
+        window.location.href="/medicine/consult-medicine";
+      },error=>alert('Erro, contate o desenvolvedor do sistema. Detalhes do erro: '+ error));
+    
+  }else{
+      
+    this.medicineService.create(this.MedicineForm.value).subscribe(()=>{
+      alert('Medicamento cadastrado com Sucesso');
+      window.location.href="/medicine/consult-medicine";
+    },error=>alert('Erro, contate o desenvolvedor do sistema. Detalhes do erro: '+ error));
+  
+  }
+  }
+
+  submitForm(){    
+    if(this.MedicineForm.valid){
+        const form = this.MedicineForm.value;
+        this.medicineService.create(form);
+    }
+} 
+
+
+  get editing(): boolean {
+    return this.medicineId != null;
+  }
+  
   
 
   
