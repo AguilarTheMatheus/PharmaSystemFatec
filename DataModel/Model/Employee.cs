@@ -13,7 +13,7 @@ namespace PharmaSystem.DataModel.Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public int CPF { get; set; }
+        public string CPF { get; set; }
 
         [Required]
         public string Password { get; set; }
