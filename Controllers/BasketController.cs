@@ -101,7 +101,7 @@ namespace PharmaSystem.Controllers
         basket.Medicine = basketView.Medicine;
         basket.Employee = basketView.Employee;
 
-        _BasketRepository.Update(basket);
+        _BasketRepository.Add(basket);
         return Ok(basket);
       }
       catch (DbUpdateConcurrencyException)
