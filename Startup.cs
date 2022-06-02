@@ -10,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using PharmaSystem.DataModel.DataContext;
 using PharmaSystem.Repository;
 using System;
+using System.Linq;
 
 namespace PharmaSystem
 {
@@ -32,6 +33,7 @@ namespace PharmaSystem
             services.AddScoped<ICostumerRepository, CostumerRepository>();
             services.AddScoped<IMedicineRepository, MedicineRepository>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IBasketRepository, BasketRepository>();
             services.AddDbContext<PharmacyContext>(options => options.UseSqlServer(ConnectionString));
             services.AddSpaStaticFiles(configuration =>
             {
@@ -44,6 +46,7 @@ namespace PharmaSystem
                     Version = "v1",
                     Title = "Pharma Api"
                 });
+              options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             });
         }
 
@@ -75,20 +78,6 @@ namespace PharmaSystem
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=v1}/{action=Index}/{id?}");
-            });
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=v2}/{action=Index}/{id?}");
-            });
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=v3}/{action=Index}/{id?}");
             });
 
             app.UseSwaggerUI(options =>

@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PharmaSystem.DataModel.Model;
 
@@ -13,12 +13,6 @@ namespace PharmaSystem.DataModel.Mappings
             builder.Property(p => p.TotalValue)
                 .HasColumnType("float")
                 .IsRequired();
-
-            builder.Property(p => p.Discount)
-                .HasColumnType("float");
-
-            builder.HasMany(b => b.Medicine)
-                .WithMany(m => m.Basket);
         }
     }
 }
