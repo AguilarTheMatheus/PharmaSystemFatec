@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PharmaSystem.DataModel.DataContext;
 
@@ -11,9 +12,10 @@ using PharmaSystem.DataModel.DataContext;
 namespace PharmaSystem.Migrations
 {
     [DbContext(typeof(PharmacyContext))]
-    partial class PharmacyContextModelSnapshot : ModelSnapshot
+    [Migration("20220601161021_CorrecaoExtra")]
+    partial class CorrecaoExtra
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +23,21 @@ namespace PharmaSystem.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("BasketMedicine", b =>
+                {
+                    b.Property<Guid>("BasketID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("MedicineID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("BasketID", "MedicineID");
+
+                    b.HasIndex("MedicineID");
+
+                    b.ToTable("BasketMedicine");
+                });
 
             modelBuilder.Entity("PharmaSystem.DataModel.Model.Basket", b =>
                 {
@@ -34,9 +51,6 @@ namespace PharmaSystem.Migrations
                     b.Property<Guid?>("EmployeeID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("MedicineID")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<double>("TotalValue")
                         .HasColumnType("float");
 
@@ -45,8 +59,6 @@ namespace PharmaSystem.Migrations
                     b.HasIndex("CostumerID");
 
                     b.HasIndex("EmployeeID");
-
-                    b.HasIndex("MedicineID");
 
                     b.ToTable("Basket", (string)null);
                 });
@@ -160,6 +172,21 @@ namespace PharmaSystem.Migrations
                     b.ToTable("Permission", (string)null);
                 });
 
+            modelBuilder.Entity("BasketMedicine", b =>
+                {
+                    b.HasOne("PharmaSystem.DataModel.Model.Basket", null)
+                        .WithMany()
+                        .HasForeignKey("BasketID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PharmaSystem.DataModel.Model.Medicine", null)
+                        .WithMany()
+                        .HasForeignKey("MedicineID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("PharmaSystem.DataModel.Model.Basket", b =>
                 {
                     b.HasOne("PharmaSystem.DataModel.Model.Costumer", "Costumer")
@@ -170,15 +197,9 @@ namespace PharmaSystem.Migrations
                         .WithMany()
                         .HasForeignKey("EmployeeID");
 
-                    b.HasOne("PharmaSystem.DataModel.Model.Medicine", "Medicine")
-                        .WithMany()
-                        .HasForeignKey("MedicineID");
-
                     b.Navigation("Costumer");
 
                     b.Navigation("Employee");
-
-                    b.Navigation("Medicine");
                 });
 
             modelBuilder.Entity("PharmaSystem.DataModel.Model.Employee", b =>

@@ -10,11 +10,10 @@ namespace PharmaSystem.DataModel.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid ID { get; set; }
-        public double? Discount { get; set; }
         public double TotalValue { get; set; }
 
         public Costumer Costumer { get; set; }
-        public ICollection<Medicine> Medicine { get; set; }
+        public Medicine Medicine { get; set; }
         public Employee Employee { get; set; }
 
     }

@@ -13,7 +13,6 @@ namespace PharmaSystem.DataModel.Model
         public string Name { get; set; }
         public double Price { get; set; }
         public string Category { get; set; }
-        public ICollection<Basket> Basket { get; set; }
         public int Amount { get; set; }
     }
 }
