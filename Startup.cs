@@ -48,10 +48,31 @@ namespace PharmaSystem
                 });
               options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             });
-        }
+
+      services.AddCors(option =>
+      {
+        option.AddDefaultPolicy(builder =>
+        {
+          builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+
+        });
+      });
+
+          //services.AddCors(options => options.AddPolicy("CorsPolicy",
+          //  builder =>
+          //  {
+          //    builder.AllowAnyHeader()
+          //            .AllowAnyMethod()
+          //            .SetIsOriginAllowed((host) => true)
+          //            .AllowCredentials();
+          //  }));
+
+
+    }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -64,7 +85,15 @@ namespace PharmaSystem
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+
+            //app.UseCors("CorsPolicy");
+            //app.UseSignalR(routes =>
+            //{
+            //  routes.MapHub<General>("/hubs/general");
+            //});
+
+
+           app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
             {
@@ -72,6 +101,7 @@ namespace PharmaSystem
             }
 
             app.UseRouting();
+            app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {
@@ -86,7 +116,10 @@ namespace PharmaSystem
                 options.RoutePrefix = string.Empty;
             });
 
-            app.UseSpa(spa =>
+      
+
+
+      app.UseSpa(spa =>
             {
 
                 spa.Options.SourcePath = "ClientApp";
@@ -96,6 +129,15 @@ namespace PharmaSystem
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
-        }
+
+
+
+     
+
+      
+
+
+
+    }
     }
 }

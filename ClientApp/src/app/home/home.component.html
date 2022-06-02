@@ -8,10 +8,11 @@
       <h2>PharmaSystem</h2>
 
     <!-- Login Form -->
-    <form style="margin-top: 2em;">
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="password" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Entrar" [routerLink]="['/dashboard']">
+    <form style="margin-top: 2em;" [formGroup]="formLogin">
+      <input formControlName="email"  #emailHtml type="text" id="login" name="emailName"class="fadeIn second" name="login" placeholder="login">
+      <input formControlName="password" #passwordHtml type="password" id="password" name="passwordName"class="fadeIn third" name="login" placeholder="password">
+
+      <input  (click)="onLogin()"  type="submit" class="fadeIn fourth" value="Entrar" >
     </form>
 
     <!-- Remind Password -->

@@ -1,7 +1,8 @@
 export interface Employee{
+    id: String,
     firstName: String,
     lastName: String,
-    permissionType: Number,
+    password: String,
     email: String,
-    cpf: Number,
+    cpf: String,
 } 

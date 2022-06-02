@@ -1,8 +1,8 @@
 export interface Client{
-    // id: String,
+     id: String,
     firstName: String,
     lastName: String,
-    phone: String,
+    phoneNumber: String,
     address: String,
     cpf: String,
 }

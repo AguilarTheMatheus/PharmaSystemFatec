@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClientService } from './../service/cliente.service';
 import PageResult from "./../../util/page-result.model";
 import {Client} from "./../client.modal";
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-consult-client',
@@ -9,18 +10,27 @@ import {Client} from "./../client.modal";
   styleUrls: ['./consult-client.component.css']
 })
 export class ConsultClientComponent implements OnInit {
+  
+//vars
+now : any;
+pageResult: PageResult<Client> = new PageResult();
+listClients?:Client[];
+filterForm: FormGroup;
 
-  constructor( private clientService:ClientService) { }
-
-  ngOnInit() {
-    this.getAll();
-    this.obterDataAtual();
+  constructor( private clientService:ClientService,private fb: FormBuilder) { 
+    this.setFilterForm();
   }
 
+ 
 
-  now : any;
-  pageResult: PageResult<Client> = new PageResult();
-  listClients?:Client[];
+   ngOnInit() {
+   
+    this.getAll();
+    this.obterDataAtual();
+    
+  }
+
+  
 
   public  obterDataAtual() {
     const date = new Date();
@@ -42,30 +52,35 @@ export class ConsultClientComponent implements OnInit {
     return valor;
   }
 
-  
+  private setFilterForm(): void {
+    this.filterForm = this.fb.group({
+      firstName: [null],
+      cpf: [null],
+      
+    });
+  }
 
+  // this.filterForm.value
+  //tirado dos paramrtros do metodo abaixo
   getAll(){
-    console.log('entrou get');
     this.clientService.getAll().subscribe((response)=>{
       
-      console.log('primeiro response',response);
-
       if(response){
         this.listClients = response;
       }
-
-      console.log('lista',this.listClients);
-    },error=>console.log("erro ", error));;
+    },error=>alert('Erro, contate o desenvolvedor do sistema. Detalhes do erro: '+ error));
   } 
 
+  
   delete(Id: any){
-    console.log("id do parametro:", Id);
 
     this.clientService.delete(Id).subscribe(()=>{
-      console.log("excluido com sucesso!");
-    },error=>console.log("erro ", error));
-    
+      alert('Cliente excluído com Sucesso');
+      window.location.reload();
+    },error=>alert('Erro, contate o desenvolvedor do sistema. Detalhes do erro: '+ error));
+     
   }
-  
+
+ 
 
 }

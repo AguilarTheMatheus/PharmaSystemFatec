@@ -8,7 +8,7 @@
       
       <div class="div-label">
         <div>
-           <label>PharmaSystem</label>
+           <label>PHARMASYSTEM</label>
         </div>        
         <div style="margin-left: 50em;">          
           <label> {{now}}</label>
@@ -16,11 +16,11 @@
       </div>
 
         <!-- conteúdo da página -->
-        <h3 class="h3-titulo">Cadastrar Medicamento</h3>
+        <h3 class="h3-titulo">{{editing ? 'Atualizar Medicamento' : 'Cadastrar Medicamento'  }}</h3> 
         <label class="label-campos-obrigatorios">-Todos os campos são obrigatórios.</label>
         <br>
         <br>
-        <form [formGroup]="MedicineForm"> 
+        <form [formGroup]="MedicineForm" (ngSubmit)="submitForm()"> 
 
         <div class="div-nome-e-id" >
           
@@ -41,24 +41,28 @@
           <div style="display: inline-grid;margin-right: 10px;">
             <label for="cbxGrupo">Categoria</label>
             <select formControlName="category" name="cbxGrupo" class="select">
-              <option value="A">Selecione uma Categoria</option>
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="-">Other</option>
+              <option value="-">Selecione uma Categoria</option>
+              <option value="Fitoterápico">Fitoterápico</option>
+              <option value="Alopático">Alopático</option>
+              <option value="Homeopático">Homeopático</option>
+              <option value="Similar">Similar</option>
+              <option value="Generico">Generico</option>
+              <option value="Referência">de Referência</option>
+              <option value="Manipulado">Manipulado</option>
             </select>
           </div>
 
-          <div style="display: inline-grid;margin-right: 10px;padding-left: 13px; ">
+           <div style="display: inline-grid;margin-right: 10px;padding-left: 13px; ">
             <label>Quantidade</label>
-            <input formControlName="quantity" class="input" type="number" placeholder="Insira a quantidade">
-          </div>
+            <input formControlName="amounty" class="input" type="number" placeholder="Insira a quantidade">
+          </div> 
         </div>
        
        
        </form> 
 
         <div style="margin-left: 30px;margin-top: 280px; margin-bottom: 10em;">
-          <input  (click)="createMedicine()" type="submit" class="botão" value="Salvar">
+          <button (click)="createMedicine()" class="botão">{{editing ? 'Atualizar' : 'Cadastrar'  }}</button>
         </div>
         <!--  -->
   

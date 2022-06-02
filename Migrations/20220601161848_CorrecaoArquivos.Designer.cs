@@ -12,8 +12,8 @@ using PharmaSystem.DataModel.DataContext;
 namespace PharmaSystem.Migrations
 {
     [DbContext(typeof(PharmacyContext))]
-    [Migration("20220530215529_AddedAmountMedicine")]
-    partial class AddedAmountMedicine
+    [Migration("20220601161848_CorrecaoArquivos")]
+    partial class CorrecaoArquivos
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -47,9 +47,6 @@ namespace PharmaSystem.Migrations
 
                     b.Property<Guid?>("CostumerID")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<double?>("Discount")
-                        .HasColumnType("float");
 
                     b.Property<Guid?>("EmployeeID")
                         .HasColumnType("uniqueidentifier");

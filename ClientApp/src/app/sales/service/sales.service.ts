@@ -16,21 +16,14 @@ export class SalesService{
    
 
 
-    // getAll():Observable<MedicineType[]>{
-    //     return this.http.get<MedicineType[]>(`/api/v1/Basket/get`);
-    //   }
+     getAll():Observable<Sales[]>{
+         return this.http.get<Sales[]>(`http://localhost:5510/v1/basket/get`);
+       }
           
-    create(sales:Sales):Observable<any>{
-    return this.http.post<Sales>(`/api/v1/Basket/new`,sales);
+    create(sales:Sales):Observable<Sales>{
+    return this.http.post<Sales>(`http://localhost:5510/v1/basket/new`,sales);
     }
 
-    
-    // delete(medicineId: MedicineType): Observable<any>{
-    // return this.http.delete<MedicineType>(`/api/v1/medicine/delete/${medicineId}`);
-    // }
-    
-    // update(medicineId:MedicineType,medicine:MedicineType):Observable<any>{
-    // return this.http.put<MedicineType>(`/api/v1/medicine/put/${medicineId}`,medicine);
-    // }
+   
 
 }

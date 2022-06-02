@@ -7,7 +7,7 @@
 
       <div class="div-label">
         <div>
-           <label>PharmaSystem</label>
+           <label>PHARMASYSTEM</label>
         </div>        
         <div style="margin-left: 50em;">          
           <label> {{now}}</label>
@@ -16,11 +16,12 @@
 
 
         <!-- conteúdo da página -->
-        <h3 class="h3-titulo">Cadastrar Cliente</h3>
+         <h3 class="h3-titulo">{{editing ? 'Atualizar Cliente' : 'Cadastrar Cliente'  }}</h3> 
+        
         <label class="label-campos-obrigatorios">Todos os campos são obrigatórios</label>
         <br>
         <br>
-        <form [formGroup]="ClientForm" > 
+        <form [formGroup]="ClientForm" (ngSubmit)="submitForm()"> 
 
         <div class="div-nome-e-id" >
 
@@ -60,10 +61,7 @@
        
 
         <div style="margin-left: 30px;margin-top: 13px;margin-bottom: 10em;">
-          <!-- <button class="botão">{{editing ? 'Atualizar' : 'Cadastrar'  }}</button> -->
-          <!-- <button class="botão">  (click)="createClient()" </button> -->
-          <input  (click)="createClient()" type="submit" class="botão" value="Salvar">
-          <!-- <button (click)="onCancelButton()" style="margin-left:10px;" class="botão">Cancelar</button> -->
+          <button (click)="createClient()" class="botão">{{editing ? 'Atualizar' : 'Cadastrar'  }}</button>
         </div>
           
         <!--  -->
